@@ -1,6 +1,7 @@
 <?php
  
 class FuncionesTabla{
+   
     private $db;
 
     function __construct()
@@ -10,28 +11,25 @@ class FuncionesTabla{
 
     function TraerProductos(){
 
-        $sentencia =$this->db->prepare("SELECT * FROM `productos`");
-        $sentencia->execute();
-        $marcas= $sentencia->fetchAll(PDO::FETCH_OBJ);
+        $query=$this->db->prepare("SELECT * FROM productos");//("SELECT * FROM productos INNER JOIN marcas ON productos.marcas_id = marcas.id_marcas");
+        $query->execute();
+        $productos= $query->fetchAll(PDO::FETCH_OBJ);
      
-          return $marcas;
+          return $productos;
     }
 
-    function insertarproductos(){
+    function insertarproductos($producto, $cantidad, $marcas, $precio){
         
-        $sentencia =$this->db->prepare("INSERT INTO `productos`(`producto`, `cantidad`)  VALUES(?,?,?,?)");
+        $query =$this->db->prepare("INSERT INTO productos (producto, cantidad, marcas_id, precio)  VALUES(?,?,?,?)");
+        $query->execute([$producto, $cantidad, $marcas, $precio]);
         
-        $completo = 0;
-        if(isset($_POST['producto'])){
-            $completo = 1;
-        }
-        $sentencia->execute(array($_POST['producto'],$_POST['cantidad']));
-        header("Location: home");
-    }
-   /* function editarProductos() {
+        return $this->db->lastInsertId();
 
+    
     }
-    function borrarProductos (){
-
-    }*/
+    function borrarProductos($id) {
+        $query = $this->db->prepare('DELETE FROM `productos` WHERE id = ?');
+        $query->execute([$id]);
+    }
+   
 }

@@ -18,4 +18,15 @@ class ModeloMarcas
      
           return $marcas;
     }
+    function insertarMarcas ( $marcas){
+        
+        $query =$this->db->prepare("INSERT INTO `marcas`(`marcas`)  VALUES(?)");
+        $query->execute([$marcas, false]);
+
+        return $this->db->lastInsertId();
+    }
+    function borrarMarcas($id) {
+        $query = $this->db->prepare('DELETE FROM `marcas` WHERE id = ?');
+        $query->execute([$id]);
+    }
 }

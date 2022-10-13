@@ -1,16 +1,25 @@
 <?php
 
-/*require_once "./vista/vista.php"
-require_once "./modelo/modelo.php";
+require_once './app/modelo/modelousuarios.php';
+require_once './app/vista/vistausuarios.php';
 
-class controladorUsuarios{
+
+class controladorUsuarios
+{
 
     private $vista;
     private $modelo;
 
-    function __constructor(){
-        $this->vista = new vista();
-        $this->modelo = new modelo();
+    function __construct()
+    {
+        $this->vista = new vistausuarios();
+        $this->modelo = new ModelosUsuarios();
 
     }
+    public function vistaLogin() {
+        $this->vista->mostrarLogin();
+    }
+
+  
+}
     ?>

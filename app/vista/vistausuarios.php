@@ -1,9 +1,10 @@
+
 <?php
 require_once './libs/smarty-4.2.1/libs/Smarty.class.php';
 
 
 
-class VistaProductos
+class vistausuarios
 {
     private $smarty;
 
@@ -11,11 +12,12 @@ class VistaProductos
     {
         $this->smarty=new Smarty();
     }
-    function MostrarProductos($productos)
-    {
-        $this->smarty->assign ("productos",$productos);
-        $this->smarty->display("tablaProductos.tpl");
+    function mostrarLogin($error = null) {
+        $this->smarty->assign("error", $error);
+        $this->smarty->display('form.tpl');
     }
    
 
 }
+
+?>

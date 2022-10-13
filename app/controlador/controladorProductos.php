@@ -1,7 +1,7 @@
 <?php
 
 require_once "./app/vista/vistaProductos.php";
-require_once "./app/modelo/ModeloMarcas.php";
+require_once "./app/modelo/modeloproductos.php";
 
 class controladorProductos
 {
@@ -11,20 +11,34 @@ class controladorProductos
 
     function __construct()
     {
-        $this->vista = new vistaProductos();
-        $this->modelo = new ModeloMarcas();
+        $this->vista = new VistaProductos();
+        $this->modelo = new FuncionesTabla();
+
     }
 
 
-    function MostrarMarcas()
+    function MostrarProductos()
     {
-        $marcas = $this->modelo->TraerMarcas();
-        $this->vista->MostrarMarcas($marcas);
+        $productos=$this->modelo->TraerProductos();
+        $this->vista->MostrarProductos($productos);
     }
-
- /*   function insertarproductos ()
+    function insertarproductos ()
     {
-        ($this->modelo->insertarproductos());
-        $this->vista->insertarproductos();
-    }*/
-}
+        $producto = $_POST['producto'];
+        $cantidad = $_POST['cantidad'];
+        $precio = $_POST['precio'];
+        $marcas= $_POST['marcas'];
+
+        $id = $this->modelo->insertarproductos($producto, $cantidad, $marcas, $precio);
+
+         header("Location: " . BASE_URL); 
+        //$this->vista->MostrarProductos($productos);
+       
+    }
+    function borrarProductos($id) 
+    {
+        $this->modelo->borrarProductos($id);
+        header("Location: " . BASE_URL);
+        
+    }
+}    
