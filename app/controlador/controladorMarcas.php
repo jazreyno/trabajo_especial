@@ -26,15 +26,19 @@ class controladorMarcas
     {
         $marcas = $_POST['marcas'];
 
-        $id = $this->modelo->insertarMarcas($marcas);
-
-        header("Location: " . BASE_URL); 
-     
-       
+        $id = $this->modelomarcas->insertarMarcas($marcas);
+        
+        header("Location: " . BASE_URL. "/marcas"); 
+    
     }
     function borrarMarcas($id) 
     {
-        $this->modelo->borrarMarcas($id);
-        header("Location: " . BASE_URL);
+        $this->modelomarcas->borrarMarcas($id);
+        header("Location: " . BASE_URL. "marcas"); 
+    }
+    function editarMarcas($id)
+    {
+        $this->modelomarcas->editarMarcas($id);
+        header("Location: " . BASE_URL. "marcas"); 
     }
 }

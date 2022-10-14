@@ -9,7 +9,7 @@
   <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
   <label for="floatingPassword">contraseña</label>
 </div>
-<button class="btn btn-primary" type="button">enviar</button>
+<button class="btn btn-primary" type="button" type="submit"  >enviar</button>
 </div>
 
 {include file="footer.tpl"}

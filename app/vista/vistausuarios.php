@@ -17,6 +17,7 @@ class vistausuarios
         $this->smarty->display('form.tpl');
     }
    
+   
 
 }
 

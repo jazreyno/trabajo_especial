@@ -32,7 +32,6 @@ class controladorProductos
         $id = $this->modelo->insertarproductos($producto, $cantidad, $marcas, $precio);
 
          header("Location: " . BASE_URL); 
-        //$this->vista->MostrarProductos($productos);
        
     }
     function borrarProductos($id) 

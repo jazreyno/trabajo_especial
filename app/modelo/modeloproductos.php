@@ -4,14 +4,14 @@ class FuncionesTabla{
    
     private $db;
 
-    function __construct()
+    function connect ()
     {
         $this-> db = new PDO('mysql:host=localhost;'.'dbname=db_tpespecial;charset=utf8', 'root', '');
     }
 
     function TraerProductos(){
-
-        $query=$this->db->prepare("SELECT * FROM productos");//("SELECT * FROM productos INNER JOIN marcas ON productos.marcas_id = marcas.id_marcas");
+        $db = $this->connect(); 
+        $query=$this->db->prepare("SELECT * FROM productos");
         $query->execute();
         $productos= $query->fetchAll(PDO::FETCH_OBJ);
      
@@ -19,7 +19,7 @@ class FuncionesTabla{
     }
 
     function insertarproductos($producto, $cantidad, $marcas, $precio){
-        
+        $db = $this->connect(); 
         $query =$this->db->prepare("INSERT INTO productos (producto, cantidad, marcas_id, precio)  VALUES(?,?,?,?)");
         $query->execute([$producto, $cantidad, $marcas, $precio]);
         
@@ -28,7 +28,8 @@ class FuncionesTabla{
     
     }
     function borrarProductos($id) {
-        $query = $this->db->prepare('DELETE FROM `productos` WHERE id = ?');
+        $db = $this->connect(); 
+        $query = $this->db->prepare('DELETE FROM `productos` WHERE id_productos = ?');
         $query->execute([$id]);
     }
    

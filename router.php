@@ -38,13 +38,18 @@ case 'login':
 case 'insertarproductos':
     $controladorProducto->insertarproductos();
     break;
+case 'insertarMarcas':
+    $controladorMarcas->insertarMarcas();
+    break;    
 
 case 'borrarProductos':
     $id = $params[1];
     $controladorProducto->borrarProductos($id);
     break;
-
-
+case 'borrarMarcas':
+     $id = $params[1];
+     $controladorMarcas->borrarMarcas($id);
+    break;
 default:
     echo ('404 Page not found');
     break;

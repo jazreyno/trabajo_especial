@@ -1,10 +1,13 @@
 body{
     background-color: darkseagreen;
+
 }
-table{
+#tabla{
     margin-top:10px; 
+    text-align: center;
 }
 .usuarios
 {
     margin-top:10px; 
 }
+

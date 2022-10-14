@@ -19,7 +19,6 @@
                 <option value="5">carrefour</option>
             </select>
         </div>
+        <button type="submit" class="btn btn-primary mb-3">insertar</button>
     </div>
-    <button type="submit" class="btn btn-primary mb-3">insertar</button>
-
 </form>
