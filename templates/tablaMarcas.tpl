@@ -10,8 +10,7 @@
        <td><a href='borrarMarcas/{$marca->id_marcas}'class="btn btn-danger" > Eliminar </a></td>
        <td><a href='editarMarcasForm/{$marca->id_marcas}'class="btn btn-success"> Editar </a></td>
        </tr>
-        
-      {/if}
+     {/if}   
  {/foreach}
  
 </table>

@@ -12,6 +12,8 @@
 </head>
 <body>
     <header>
+   
+
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
               <a class="navbar-brand" href="">Despensa La Movediza</a>
@@ -27,9 +29,9 @@
                   <a class="nav-link" aria-current="page" href="marcas">Marcas</a>
                   {if !isset($smarty.session.USER_ID)}
                     <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="login">Login</a>
+                      <a class="nav-link" aria-current="page" href="login" href="login">Login</a>
                     </li>
-                  {else} 
+                  {else}
                     <li class="nav-item ml-auto">
                       <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.USER_EMAIL})</a>
                     </li>

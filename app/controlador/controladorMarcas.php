@@ -8,49 +8,55 @@ class controladorMarcas
 
     private $vista;
     private $modelomarcas;
+    private $helper;
 
     function __construct()
     {
         $this->vista = new VistaMarcas();
         $this->modelomarcas = new ModeloMarcas();
+        $this->helper=new  userHelper();
         
     }
 
 
     function MostrarMarcas()
     {
+        $this->helper->checkInicio();
         $marcas = $this->modelomarcas->TraerMarcas();
         $this->vista->MostrarMarcas($marcas);
     }   
     function insertarMarcas ()
     {
-       // $this->helper->checkLoggedIn();
+        $this->helper->checkLoggedIn();
         $marcas = $_POST['marcas'];
 
-        $id = $this->modelomarcas->insertarMarcas($marcas);
+         $this->modelomarcas->insertarMarcas($marcas);
         
-        header("Location: " . BASE_URL. "/marcas"); 
+        header("Location: " . BASE_URL. "marcas"); 
     
     }
     function borrarMarcas($id) 
     {
-       // $this->helper->checkLoggedIn();
+        $this->helper->checkLoggedIn();
         $this->modelomarcas->borrarMarcas($id);
         header("Location: " . BASE_URL. "marcas"); 
     }
     function mostrareditarMarcasTabla()
     {
+        $this->helper->checkLoggedIn();
         $marcas = $this->modelomarcas->TraerMarcas();
         $this->vista->mostrareditarMarcasTablaform($marcas);
     
     } 
    function mostrareditarMarcas($id){
+        $this->helper->checkLoggedIn();
         $marcas = $this->modelomarcas->TraerMarcasid($id);
         $this->vista->mostrareditarMarcasTabla($marcas);
        
     }
     function editarMarcas($id)
     { 
+        $this->helper->checkLoggedIn();
         $marcas_edit= $_POST['marcas_edit'];
 
         $this->modelomarcas->editarMarcas($marcas_edit,$id);

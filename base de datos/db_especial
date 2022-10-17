@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2022 a las 02:09:56
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 7.4.29
+-- Tiempo de generación: 17-10-2022 a las 19:40:23
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,12 +37,11 @@ CREATE TABLE `marcas` (
 --
 
 INSERT INTO `marcas` (`marcas`, `id_marcas`) VALUES
-('ilolay', 3),
-('marolio', 4),
-('casancrem', 5),
-('lapaulina', 6),
-('carrefour', 7),
-('ARCOR', 11);
+('ilolay', 5),
+('marolio', 13),
+('carrefour', 15),
+('cansancrem', 16),
+('lapaulina', 24);
 
 -- --------------------------------------------------------
 
@@ -63,10 +62,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`producto`, `cantidad`, `id_productos`, `marcas_id`, `precio`) VALUES
-('Mermelada', 5, 9, 4, 50),
-('leche', 2, 20, 4, 250),
-('yerba', 1, 22, 5, 250),
-('yerba', 3, 24, 5, 230);
+('harina', 1, 38, 16, 213),
+('yerba', 3, 39, 15, 250),
+('sopa', 1, 40, 5, 200),
+('huevos', 1, 41, 15, 160);
 
 -- --------------------------------------------------------
 
@@ -85,7 +84,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`email`, `contraseña`, `id_usuarios`) VALUES
-('jazminreynoso@gmail.', '1234', 1);
+('reynosojazmin@gmail.', '$2y$10$cat', 2),
+('reynosojazmin@gmail.', '$2y$10$3st', 3);
 
 --
 -- Índices para tablas volcadas
@@ -118,19 +118,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marcas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_marcas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
