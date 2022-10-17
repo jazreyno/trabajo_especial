@@ -14,7 +14,7 @@ class vistausuarios
     }
     function mostrarLogin($error = null) {
         $this->smarty->assign("error", $error);
-        $this->smarty->display('form.tpl');
+        $this->smarty->display('formusuarios.tpl');
     }
    
    

@@ -6,11 +6,13 @@
 {foreach from=$marcas item=$marca}
      
        <tr> <td>  {$marca->marcas} </td>  
-       <td><a href='borrarMarcas/{$marca->id_marcas}'class="btn btn-danger" id="eliminar"> Eliminar </a></td></td>
-       <td><button type="button" class="btn btn-success">editar</button></td>
+       <td><a href='borrarMarcas/{$marca->id_marcas}'class="btn btn-danger" id="eliminar"> Eliminar </a></td>
+       <td><a href='editarMarcasForm/{$marca->id_marcas}'class="btn btn-danger"> Editar </a></td>
+       
        </tr>
         
 
  {/foreach}
+ 
 </table>
 {include file="footer.tpl"}

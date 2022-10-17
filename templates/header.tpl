@@ -23,10 +23,8 @@
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="productos">Productos</a>
                   </li>
-
                   <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="marcas">Marcas</a>
-                </li>
                   {if !isset($smarty.session.USER_ID)}
                     <li class="nav-item">
                       <a class="nav-link" aria-current="page" href="login">Login</a>

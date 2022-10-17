@@ -16,4 +16,13 @@ class VistaMarcas
         $this->smarty->assign ("marcas",$marcas);
         $this->smarty->display("tablaMarcas.tpl");
     }
+      function mostrareditarMarcasTablaform($marcas){
+        $this->smarty->assign ("marcas",$marcas);
+        $this->smarty->display("templates/editProductos-2.tpl");
+    }
+
+    function mostrareditarMarcasTabla($marcas){
+        $this->smarty->assign ("marcas",$marcas);
+        $this->smarty->display("templates/editMarcas.tpl");
+    }
 }    

@@ -12,11 +12,11 @@
         <div class="form-group">
             <label>Prioridad</label>
             <select name="marcas" class="form-control">
-                <option value="1">ilolay</option>
-                <option value="2">marolio</option>
-                <option value="3">casancrem</option>
-                <option value="4">lapaulina</option>
-                <option value="5">carrefour</option>
+                <option value="5">ilolay</option>
+                <option value="13">marolio</option>
+                <option value="16">casancrem</option>
+                <option value="24">lapaulina</option>
+                <option value="15">carrefour</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary mb-3">insertar</button>

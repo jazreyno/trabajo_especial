@@ -24,6 +24,7 @@ class controladorProductos
     }
     function insertarproductos ()
     {
+       // $this->helper->checkLoggedIn();
         $producto = $_POST['producto'];
         $cantidad = $_POST['cantidad'];
         $precio = $_POST['precio'];
@@ -31,13 +32,33 @@ class controladorProductos
 
         $id = $this->modelo->insertarproductos($producto, $cantidad, $marcas, $precio);
 
-         header("Location: " . BASE_URL); 
+         header("Location: " . BASE_URL . "productos"); 
        
     }
     function borrarProductos($id) 
     {
+        //$this->helper->checkLoggedIn();
         $this->modelo->borrarProductos($id);
-        header("Location: " . BASE_URL);
+   
+        header("Location: " . BASE_URL . "productos"); 
         
+    }
+    function mostrareditartabla ($id)
+    {
+        $productos=$this->modelo->TraerProductosId($id);
+        $this->vista->MostrarProductosEdit($productos); 
+    }
+    
+    function editarProductos($id){
+        $producto = $_POST['producto_edit'];
+        $cantidad = $_POST['cantidad_edit'];
+        $precio = $_POST['precio_edit'];
+        $marcas= $_POST['marcas_edit'];
+
+        $this->modelo->editarProductos($producto, $cantidad, $precio, $marcas, $id);
+
+        header("Location: " . BASE_URL . "productos" );
+        
+      
     }
 }    

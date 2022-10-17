@@ -24,6 +24,7 @@ class controladorMarcas
     }   
     function insertarMarcas ()
     {
+       // $this->helper->checkLoggedIn();
         $marcas = $_POST['marcas'];
 
         $id = $this->modelomarcas->insertarMarcas($marcas);
@@ -33,12 +34,27 @@ class controladorMarcas
     }
     function borrarMarcas($id) 
     {
+       // $this->helper->checkLoggedIn();
         $this->modelomarcas->borrarMarcas($id);
         header("Location: " . BASE_URL. "marcas"); 
     }
-    function editarMarcas($id)
+    function mostrareditarMarcasTabla()
     {
-        $this->modelomarcas->editarMarcas($id);
+        $marcas = $this->modelomarcas->TraerMarcas();
+        $this->vista->mostrareditarMarcasTablaform($marcas);
+    
+    } 
+   function mostrareditarMarcas($id){
+        $marcas = $this->modelomarcas->TraerMarcasid($id);
+        $this->vista->mostrareditarMarcasTabla($marcas);
+       
+    }
+    function editarMarcas($id)
+    { 
+        $marcas_edit= $_POST['marcas_edit'];
+
+        $this->modelomarcas->editarMarcas($marcas_edit,$id);
+
         header("Location: " . BASE_URL. "marcas"); 
     }
 }

@@ -12,10 +12,12 @@
               <td>  {$producto->producto} </td> 
               <td>  {$producto->cantidad} </td> 
               <td>  {$producto->precio} </td> 
-              <td> <a href='borrarProductos/{$producto->id_productos}'class="btn btn-danger" id="eliminar"> Eliminar </a></td>
+              <td><a href='editarProductosForm/{$producto->id_productos}'class="btn btn-danger" id="eliminar" type="sumbit"> Editar</a></td>
+              <td><a href='borrarProductos/{$producto->id_productos}'class="btn btn-danger" id="eliminar" type="sumbit"> Eliminar </a></td>
               
               
         </tr>
  {/foreach}      
  </table>
+
  {include file="footer.tpl"}

@@ -8,12 +8,11 @@ require_once './app/controlador/usuarios.php';
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 
-$action = 'productos';
+$action = 'login';
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
-
 $controladorMarcas = new controladorMarcas();
 $controladorProducto = new controladorProductos();
 $controladorUsuarios= new controladorUsuarios();
@@ -21,7 +20,16 @@ $controladorUsuarios= new controladorUsuarios();
 $params = explode('/', $action);
 switch ($params[0]) { 
 
-    // Home
+case 'login':
+    $controladorUsuarios->vistaLogin();
+    break;
+case 'validar':
+    $controladorUsuarios->validarUsuario();
+    break;
+case 'logout':
+    $controladorUsuarios->logout();
+    break;
+// Home
 case '':
     $controladorProducto->MostrarProductos();
     break;
@@ -31,9 +39,6 @@ case 'productos':
 case 'marcas':
     $controladorMarcas->MostrarMarcas();
     break;
-case 'login':
-    $controladorUsuarios->vistaLogin();
-     break;
 
 case 'insertarproductos':
     $controladorProducto->insertarproductos();
@@ -43,13 +48,29 @@ case 'insertarMarcas':
     break;    
 
 case 'borrarProductos':
-    $id = $params[1];
-    $controladorProducto->borrarProductos($id);
+    $controladorProducto->borrarProductos($params[1]);
     break;
-case 'borrarMarcas':
-     $id = $params[1];
-     $controladorMarcas->borrarMarcas($id);
+    
+case 'borrarMarcas': 
+     $controladorMarcas->borrarMarcas($params[1]);
     break;
+    
+case 'editarProductosForm':
+    $controladorProducto->mostrareditartabla($params[1]);
+    $controladorMarcas->mostrareditarMarcastabla();
+    break;  
+case 'editarProductos':
+    $controladorProducto->editarProductos($params[1]);
+    break;
+
+case 'editarMarcasForm':
+    $controladorMarcas->mostrareditarMarcas($params[1]);
+    break;  
+
+case 'editarMarcas':
+    $controladorMarcas->editarMarcas($params[1]);
+    break;  
+
 default:
     echo ('404 Page not found');
     break;
