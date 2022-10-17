@@ -14,7 +14,7 @@
               <td>  {$producto->precio} </td> 
               <td><a href='editarProductosForm/{$producto->id_productos}'class="btn btn-danger" id="eliminar" type="sumbit"> Editar</a></td>
               <td><a href='borrarProductos/{$producto->id_productos}'class="btn btn-danger" id="eliminar" type="sumbit"> Eliminar </a></td>
-              
+              <td><a href='verProducto/{$producto->id_productos}'class="btn btn-danger" id="eliminar" type="sumbit"> ver mas </a></td>
               
         </tr>
  {/foreach}      

@@ -70,6 +70,9 @@ case 'editarMarcasForm':
 case 'editarMarcas':
     $controladorMarcas->editarMarcas($params[1]);
     break;  
+case 'verProducto':
+    $controladorProducto->verProducto($params[1]);
+    break; 
 
 default:
     echo ('404 Page not found');

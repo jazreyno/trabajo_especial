@@ -61,4 +61,8 @@ class controladorProductos
         
       
     }
+    function verProducto($id){
+        $producto=$this->modelo->TraerProductosId($id);
+        $this ->vista->mostrarSoloProducto($producto);
+    }
 }    

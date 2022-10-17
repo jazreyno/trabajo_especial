@@ -21,8 +21,12 @@ class VistaProductos
         $this->smarty->assign ("productos",$productos);
         $this->smarty->display("templates/editProductos-1.tpl");
     }
- 
-
+    function mostrarSoloProducto($producto)
+    {
+        $this->smarty->assign ("productos",$producto);
+        $this->smarty->display("templates/verProducto.tpl");
+    
+    }
    
 
 }
