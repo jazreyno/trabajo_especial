@@ -18,6 +18,7 @@ class ModeloMarcas
      
           return $marcas;
     }
+    //trae las marcas con su id
     function TraerMarcasid($id){
 
         $query =$this->db->prepare("SELECT * FROM marcas  WHERE id_marcas = ?");

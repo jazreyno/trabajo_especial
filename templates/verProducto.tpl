@@ -4,6 +4,7 @@
 <th> PRODUCTOS </th>
 <th> CANTIDAD </th>
 <th> PRECIO </th>
+{*este foreach me trae cada item de mi tabla productos y tambien lo recorre*}
 {foreach from=$productos item=$producto }
     <tr>
             <td>{$producto->producto}</td>

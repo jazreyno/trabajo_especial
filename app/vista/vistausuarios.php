@@ -12,6 +12,7 @@ class vistausuarios
     {
         $this->smarty=new Smarty();
     }
+    //el error null ve si estan vacios los campos
     function mostrarLogin($error = null) {
         $this->smarty->assign("error", $error);
         $this->smarty->display('templates/formusuarios.tpl');

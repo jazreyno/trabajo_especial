@@ -56,6 +56,7 @@ case 'borrarMarcas':
     break;
     
 case 'editarProductosForm':
+    //utilice dos routers y dos funciones para que me muestre la tabla de productos y un select de marcas
     $controladorProducto->mostrareditartabla($params[1]);
     $controladorMarcas->mostrareditarMarcastabla();
     break;  
@@ -78,25 +79,5 @@ default:
     echo ('404 Page not found');
     break;
 }
-
-/*if($params[0] ==='home'|| $params[0] === ''){
-    $controladorProducto->MostrarProductos();
-}
-elseif($params[0]==='marcas'){
-    $controladorMarcas->mostrarMarcas($params[1]);
-}
-elseif($params[0]==='productos'){
-    $controladorProducto->MostrarProductos($params[1]);
-}
-elseif($params[0]==='insertarproductos' ()){
-    $controladorProductor->insertarproductos()($params[1]);
-}
-else{
-    echo('404 Page not found');
-}*/
-
-
-
-
 
  ?>

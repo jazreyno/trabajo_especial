@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2022 a las 19:40:23
+-- Tiempo de generación: 18-10-2022 a las 00:19:22
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -62,10 +62,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`producto`, `cantidad`, `id_productos`, `marcas_id`, `precio`) VALUES
-('harina', 1, 38, 16, 213),
 ('yerba', 3, 39, 15, 250),
 ('sopa', 1, 40, 5, 200),
-('huevos', 1, 41, 15, 160);
+('huevos', 1, 41, 24, 160),
+('hamburgesas', 1, 44, 15, 450);
 
 -- --------------------------------------------------------
 
@@ -74,8 +74,8 @@ INSERT INTO `productos` (`producto`, `cantidad`, `id_productos`, `marcas_id`, `p
 --
 
 CREATE TABLE `usuarios` (
-  `email` varchar(20) NOT NULL,
-  `contraseña` varchar(10) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contraseña` varchar(300) NOT NULL,
   `id_usuarios` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -84,8 +84,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`email`, `contraseña`, `id_usuarios`) VALUES
-('reynosojazmin@gmail.', '$2y$10$cat', 2),
-('reynosojazmin@gmail.', '$2y$10$3st', 3);
+('reynosojazmin@gmail.com', '$2a$12$3snlnVqUR0IoMicVL2zZLeIOYDAwsT0hPO/Eg20cibL2CKQRGWJna', 2);
 
 --
 -- Índices para tablas volcadas
@@ -118,13 +117,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marcas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_marcas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

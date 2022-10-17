@@ -2,7 +2,7 @@
 
 require_once "./app/vista/vistaMarcas.php";
 require_once "./app/modelo/ModeloMarcas.php";
-
+require_once "./app/helper/helper.php";
 class controladorMarcas
 {
 
