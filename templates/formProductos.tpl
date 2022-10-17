@@ -1,4 +1,4 @@
-
+{if isset($smarty.session.USER_ID)}
 <form method="POST" class="row g-3" action="insertarproductos">
     <div class="col-auto">
         <label for="inputPassword2" class="visually-hidden">Productos</label>
@@ -19,6 +19,7 @@
                 <option value="15">carrefour</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary mb-3">insertar</button>
+        <button type="submit"  class="btn btn-warning">insertar</button>
     </div>
 </form>
+{/if}

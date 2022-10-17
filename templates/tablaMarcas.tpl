@@ -4,14 +4,14 @@
 <table class="table table-success table-striped-columns" id="tabla">
 <th> MARCA </th> 
 {foreach from=$marcas item=$marca}
-     
+   
        <tr> <td>  {$marca->marcas} </td>  
-       <td><a href='borrarMarcas/{$marca->id_marcas}'class="btn btn-danger" id="eliminar"> Eliminar </a></td>
-       <td><a href='editarMarcasForm/{$marca->id_marcas}'class="btn btn-danger"> Editar </a></td>
-       
+       {if isset($smarty.session.USER_ID)}
+       <td><a href='borrarMarcas/{$marca->id_marcas}'class="btn btn-danger" > Eliminar </a></td>
+       <td><a href='editarMarcasForm/{$marca->id_marcas}'class="btn btn-success"> Editar </a></td>
        </tr>
         
-
+      {/if}
  {/foreach}
  
 </table>

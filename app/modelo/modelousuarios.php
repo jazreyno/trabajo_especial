@@ -14,6 +14,8 @@ class ModelosUsuarios{
         $sentencia->execute(array($id));
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
+    
+   
       
 }
 
