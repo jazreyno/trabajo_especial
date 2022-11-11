@@ -11,6 +11,12 @@ class VistaMarcas
         $this->smarty=new Smarty();
     }
 
+    function MostrarSelect($marcas)
+    {
+        $this->smarty->assign("marcas",$marcas);
+        $this->smarty->display("formProductos.tpl");
+    }
+
     function MostrarMarcas($marcas)
     {
         $this->smarty->assign ("marcas",$marcas);
@@ -25,4 +31,9 @@ class VistaMarcas
         $this->smarty->assign ("marcas",$marcas);
         $this->smarty->display("templates/editMarcas.tpl");
     }
+    function SelectMarcas($marcas){
+        $this->smarty->assign ("marcas",$marcas);
+        $this->smarty->display("templates/formProductos.tpl");
+    }
+    
 }    

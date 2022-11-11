@@ -3,6 +3,8 @@
 require_once "./app/vista/vistaProductos.php";
 require_once "./app/modelo/modeloproductos.php";
 require_once "./app/helper/helper.php";
+
+
 class controladorProductos
 {
 
@@ -32,7 +34,7 @@ class controladorProductos
         $precio = $_POST['precio'];
         $marcas= $_POST['marcas'];
 
-        $id = $this->modelo->insertarproductos($producto, $cantidad, $marcas, $precio);
+         $this->modelo->insertarproductos($producto, $cantidad,$marcas,$precio);
 
          header("Location: " . BASE_URL . "productos"); 
        
@@ -69,5 +71,11 @@ class controladorProductos
         $this->helper->checkInicio();
         $producto=$this->modelo->TraerProductosId($id);
         $this ->vista->mostrarSoloProducto($producto);
+    }
+    function verProductoMarca($id){
+        $this->helper->checkInicio();
+        $producto=$this->modelo->TraerProductosMarca($id);
+        $this ->vista->mostrarSoloProducto($producto);
+    
     }
 }    

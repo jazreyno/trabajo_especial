@@ -25,6 +25,7 @@ class ModeloMarcas
         $query->execute([$id]);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+    
     function insertarMarcas ($marcas){   
         $query =$this->db->prepare("INSERT INTO marcas (marcas)  VALUES(?)");
         $query->execute([$marcas]);

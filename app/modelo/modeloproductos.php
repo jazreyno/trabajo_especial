@@ -11,7 +11,9 @@ class FuncionesTabla{
 
     function TraerProductos(){
         
-        $query=$this->db->prepare("SELECT * FROM productos");
+        $query=$this->db->prepare("SELECT * FROM productos 
+                                  INNER JOIN marcas 
+                                  on productos.marcas_id = marcas.id_marcas");
         $query->execute();
         $productos= $query->fetchAll(PDO::FETCH_OBJ);
      
@@ -19,14 +21,28 @@ class FuncionesTabla{
     }
     function TraerProductosId($id){
     
-        $query=$this->db->prepare("SELECT * FROM productos  WHERE id_productos = ?");
+        $query=$this->db->prepare(" SELECT * 
+                                    FROM productos 
+                                    INNER JOIN marcas 
+                                    on productos.marcas_id = marcas.id_marcas 
+                                    WHERE id_productos = ?");
+        $query->execute([$id]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+    function TraerProductosMarca($id){
+    
+        $query=$this->db->prepare(" SELECT * 
+                                    FROM productos 
+                                    INNER JOIN marcas 
+                                    on productos.marcas_id = marcas.id_marcas 
+                                    WHERE id_marcas = ?");
         $query->execute([$id]);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
     function insertarproductos($producto, $cantidad, $marcas, $precio){
 
-        $query =$this->db->prepare("INSERT INTO productos (producto, cantidad, marcas_id, precio)  VALUES(?,?,?,?)");
+        $query =$this->db->prepare("INSERT INTO `productos`(`producto`, `cantidad`, `marcas_id`, `precio` )VALUES(?,?,?,?)");
         $query->execute([$producto,$cantidad,$marcas,$precio]);
         
         return $this->db->lastInsertId();

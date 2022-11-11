@@ -15,6 +15,7 @@ class VistaProductos
     {
         $this->smarty->assign ("productos",$productos);
         $this->smarty->display("tablaProductos.tpl");
+
     }
     function MostrarProductosEdit($productos)
     {

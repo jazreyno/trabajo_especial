@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2022 a las 00:19:22
+-- Tiempo de generación: 10-11-2022 a las 22:49:58
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -65,7 +65,8 @@ INSERT INTO `productos` (`producto`, `cantidad`, `id_productos`, `marcas_id`, `p
 ('yerba', 3, 39, 15, 250),
 ('sopa', 1, 40, 5, 200),
 ('huevos', 1, 41, 24, 160),
-('hamburgesas', 1, 44, 15, 450);
+('hamburgesas', 1, 44, 15, 450),
+('yerba', 3, 46, 16, 250);
 
 -- --------------------------------------------------------
 
@@ -117,13 +118,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marcas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_marcas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -139,7 +140,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`marcas_id`) REFERENCES `marcas` (`id_marcas`);
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`marcas_id`) REFERENCES `marcas` (`id_marcas`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

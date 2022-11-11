@@ -35,6 +35,8 @@ case '':
     break;
 case 'productos':       
     $controladorProducto->MostrarProductos(); 
+    $controladorMarcas->MostrarSelect();
+  
     break;
 case 'marcas':
     $controladorMarcas->MostrarMarcas();
@@ -42,7 +44,7 @@ case 'marcas':
 
 case 'insertarproductos':
     $controladorProducto->insertarproductos();
-    break;
+    break;    
 case 'insertarMarcas':
     $controladorMarcas->insertarMarcas();
     break;    
@@ -50,13 +52,14 @@ case 'insertarMarcas':
 case 'borrarProductos':
     $controladorProducto->borrarProductos($params[1]);
     break;
-    
+
+
 case 'borrarMarcas': 
      $controladorMarcas->borrarMarcas($params[1]);
     break;
     
 case 'editarProductosForm':
-    //utilice dos routers y dos funciones para que me muestre la tabla de productos y un select de marcas
+    //utilice dos controllers y dos funciones para que me muestre la tabla de productos y un select de marcas
     $controladorProducto->mostrareditartabla($params[1]);
     $controladorMarcas->mostrareditarMarcastabla();
     break;  
@@ -74,7 +77,9 @@ case 'editarMarcas':
 case 'verProducto':
     $controladorProducto->verProducto($params[1]);
     break; 
-
+case 'verProductoMarca':
+    $controladorProducto->verProductoMarca($params[1]);
+     break; 
 default:
     echo ('404 Page not found');
     break;
